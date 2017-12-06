@@ -1,8 +1,8 @@
 <%include ../partials/header%>
 <div class = "container">
-    <h1 style = "margin-top:auto">Edit Unit <%= unit.name%></h1>    
+    <h1 style = "margin-top:auto">Edit Unit</h1>    
     <form action = "/courses/units/<%=unit._id%>?_method=PUT", method = "POST">
-    <input style="width: 20%" class="form-control" type = "text" name = "unit[name]" value = "<%=unit.name%>" placeholder = "unit name">
+    <input style="width: 40%" class="form-control" type = "text" name = "unit[name]" value = "<%=unit.name%>" placeholder = "unit name">
 </div>        
     <textarea style="width:80%;height:65%;margin-left:10%;margin-right:10%;font-size:16;margin-bottom:10;" row="70", cols="100" name = "unit[text]"><%=unit.text%></textarea>
         <div>

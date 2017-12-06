@@ -199,7 +199,7 @@ app.put("/courses/units/:id", isLoggedIn, function(req, res){
           res.redirect("/courses");
         }
         else{
-          res.redirect("/courses");
+          res.redirect("/courses/units/" + updatedUnit.courseId);
         }
     });
 });

@@ -1,20 +1,25 @@
 <% include ../partials/header %>
-	<h1 class = "text-center">Units page for <%=course.name %></h1>
-	<div class = "text-center">
-		<a class = "btn btn-primary btn-lg" href = "/courses/units/<%=course.id%>/new">Add new Unit!</a> 
-		<a class = "btn btn-warning btn-lg" href = "/courses">Go Back</a>
-	</div>
-	<% course.units.forEach(function(unit){ %>
-		<div class = "col-xs-6">
+	
+		<h1 class = "text-center">Units page for <%=course.name %></h1>
+		<div style="margin-left:12%;margin-bottom:10px">
+			<a class = "btn btn-primary btn-lg" href = "/courses/units/<%=course.id%>/new">Add a new Unit</a> 
+			<a class = "btn btn-warning btn-lg" href = "/courses">Go Back</a>
+		</div>
+	<div class = "container">
+		<% course.units.forEach(function(unit){ %>
+	
+			<div class = "col-md-4 col-xs-6">
 				<div class = "thumbnail">
-                    <div class="thumbnail">
-		                <h2><%= unit.name%></h2>
+                    <div class="thumbnail" style="margin-bottom:10px;height:80;">
+		                <h4><%= unit.name%></h4>
 		            </div>
-		            <a href="/courses/units/<%=unit._id%>/edit">Click to edit Unit!</a>
-	                <form action = "/courses/units/<%=unit._id%>?_method=DELETE" method = "POST">
-	                	<button>delete</button>
-	                </form>
-		        </div>
-            </div>
-        </div>
-	<% }) %>
+		            <div style="text-align:center;">
+		            <a style="width:47%;margin:0" role="button" class="btn btn-primary btn-default" href="/courses/units/<%=unit._id%>/edit">Click to edit Unit</a>
+	                	<form style="display:inline;" action = "/courses/units/<%=unit._id%>?_method=DELETE" method = "POST">
+	                		<button class="btn btn-danger btn-default" style="width:47%;">delete</button>
+	                	</form>
+	                </div>
+            	</div>
+        	</div>
+		<% }) %>
+	</div>
