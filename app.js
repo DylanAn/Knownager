@@ -232,6 +232,4 @@ app.delete("/courses/units/:id", isLoggedIn, function(req, res){
 // 	    }
 // 	});
 // })
-app.listen(5000, function(){
-	console.log("Knownager server running!");
-});
+app.listen(process.env.PORT, process.env.IP);
