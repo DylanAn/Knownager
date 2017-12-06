@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+	<h1 class = "text-center">Units page for <%=course.name %></h1>
+	<div class = "text-center">
+		<a class = "btn btn-primary btn-lg" href = "/courses/units/<%=course.id%>/new">Add new Unit!</a> 
+		<a class = "btn btn-warning btn-lg" href = "/courses">Go Back</a>
+	</div>
+	<% course.units.forEach(function(unit){ %>
+		<div class = "col-xs-6">
+				<div class = "thumbnail">
+                    <div class="thumbnail">
+		                <h2><%= unit.name%></h2>
+		            </div>
+		            <a href="/courses/units/<%=unit._id%>/edit">Click to edit Unit!</a>
+	                <form action = "/courses/units/<%=unit._id%>?_method=DELETE" method = "POST">
+	                	<button>delete</button>
+	                </form>
+		        </div>
+            </div>
+        </div>
+	<% }) %>

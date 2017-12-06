@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+    <h1 class="text-center">Courses Page!</h1>
+    <div class = "container">
+        <p>
+            <a style="margin-left:15px;"class = "text-center btn btn-primary btn-lg" href = "/courses/new">Add new Courses</a>     
+        </p>
+        <% courses.forEach(function(course){ %>
+            <div class="col-xs-6">
+                <div class = "thumbnail">
+                    <div class="thumbnail">
+                        <h2><%= course.name%></h4>  
+                        <p style="word-wrap:break-word;"><%= course.description%><p>
+                    </div>
+                    <a style="width:45%;" role="button" class="btn btn-primary btn-default" href = "/courses/units/<%=course._id%>">Click to see Units</a>
+                    <a style="width:45%;margin-left:25px;" role="button" class="btn btn-warning btn-default" href = "/courses/<%=course._id%>/edit">Click to edit Course</a>
+                    <form action = "/courses/<%=course._id%>?_method=DELETE" method = "POST">
+                         <button style="width:45%;margin-top:5px" class="btn btn-danger btn-default">Click to delete Course</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+<% include ../partials/footer %>
