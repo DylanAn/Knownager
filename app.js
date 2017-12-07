@@ -212,16 +212,17 @@ app.delete("/courses/units/:id", isLoggedIn, function(req, res){
 			console.log(err);
 		}else{
 			parentCourseId = foundUnit.courseId;
+      Unit.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/courses");
+        }
+        else{
+          res.redirect("/courses/units/" + parentCourseId);
+        }
+      })
 		}
 	});
-    Unit.findByIdAndRemove(req.params.id, function(err){
-      if(err){
-        res.redirect("/courses");
-      }
-      else{
-        res.redirect("/courses/units/" + parentCourseId);
-      }
-    })
+    
 });
 // app.get("/courses/units/:id/:id",isLoggedIn, function(req,res){
 // 	Unit.findById(req.params.id, function(err,foundUnit){
