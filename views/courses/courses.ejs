@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-    <h1 class="text-center">Course Page</h1>
+    <h1 class="text-center">Courses Page!</h1>
     <div class = "container">
         <p>
             <a style="margin-left:15px;"class = "text-center btn btn-primary btn-lg" href = "/courses/new">Add a new Course</a>     
@@ -11,11 +11,15 @@
                         <h2><%= course.name%></h4>  
                         <p style="word-wrap:break-word;"><%= course.description%><p>
                     </div>
+                    <div style="text-align:center;">
                     <a style="width:45%;" role="button" class="btn btn-primary btn-default" href = "/courses/units/<%=course._id%>">Click to see Units</a>
                     <a style="width:45%;margin-left:25px;" role="button" class="btn btn-warning btn-default" href = "/courses/<%=course._id%>/edit">Click to edit Course</a>
+                    </div>
+                    <div style="text-align:center;">
                     <form action = "/courses/<%=course._id%>?_method=DELETE" method = "POST">
                          <button style="width:45%;margin-top:5px" class="btn btn-danger btn-default">Click to delete Course</button>
                     </form>
+                    </div>
                 </div>
             </div>
         <% }) %>
